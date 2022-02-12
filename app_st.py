@@ -23,7 +23,7 @@ count = st.slider('몇 개 생성하실 건가요?', 1, 10, 1)
 def generate_review(reviewer, prefix, positive, count):
     text = "긍정 : " if positive else "부정 : "
     text += prefix
-    return reviewer(text, max_length=100, num_return_sequences=count)
+    return reviewer(text, max_length=25, num_return_sequences=count)
     
 with st.spinner("리뷰를 작성중이에요..."):
     reviewer = get_pipeline()
