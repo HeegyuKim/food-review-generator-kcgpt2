@@ -27,14 +27,14 @@ def generate_review(reviewer, prefix, positive, count):
     
 with st.spinner("리뷰를 작성중이에요..."):
     reviewer = get_pipeline()
-
-refresh = st.button("새로고침")
-
-for text in generate_review(reviewer, prefix, positive, count):
-    text = text["generated_text"]
-    text = text.split("\n")[0]
     
-    if positive:
-        st.success(text)
-    else:
-        st.error(text)
+    refresh = st.button("새로고침")
+    
+    for text in generate_review(reviewer, prefix, positive, count):
+        text = text["generated_text"]
+        text = text.split("\n")[0]
+        
+        if positive:
+            st.success(text)
+        else:
+            st.error(text)
